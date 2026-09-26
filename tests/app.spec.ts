@@ -123,6 +123,9 @@ test('exercícios cabem nos desktops e layout se adapta ao celular', async ({ pa
   await page.screenshot({ path: '.tools/screenshots/home-1920.png', fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
+  await expect(page.getByRole('alert')).toContainText('pensado para computador');
+  await page.setViewportSize({ width: 1366, height: 768 });
+  await expect(page.locator('.mobile-device-warning')).toBeHidden();
 });
 test('bolhas selecionam alvo, pontuam, pausam e terminam', async ({ page }) => {
   await seed(page, 9);

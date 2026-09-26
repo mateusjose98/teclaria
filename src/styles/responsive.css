@@ -1,3 +1,28 @@
+.mobile-device-warning {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mobile-device-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 10px 15px 0;
+    padding: 11px 13px;
+    border: 1px solid #e4c987;
+    border-radius: 12px;
+    background: #fff8e6;
+    color: #806329;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .mobile-device-warning svg {
+    flex: 0 0 auto;
+    margin-top: 1px;
+  }
+}
+
 @media (min-width: 1600px) {
   .dashboard,
   .page,

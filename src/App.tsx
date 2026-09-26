@@ -1,6 +1,6 @@
 import { levels } from './data/lessons';
 import { useRef, useState } from 'react';
-import { Keyboard, ShieldCheck } from 'lucide-react';
+import { Keyboard, Monitor, ShieldCheck } from 'lucide-react';
 import { Header, type Page } from './components/Header';
 import { Welcome } from './pages/Welcome';
 import { useProgress } from './hooks/useProgress';
@@ -75,6 +75,14 @@ export default function App() {
         onHome={() => (exercising ? requestExit() : navigate('home'))}
         onSound={() => update({ ...progress, configuracoes: { som: !progress.configuracoes.som } })}
       />
+
+      <div className="mobile-device-warning" role="alert">
+        <Monitor size={18} aria-hidden="true" />
+        <span>
+          Este sistema foi pensado para computador, desktop ou notebook. No celular, algumas teclas
+          e exercícios podem ficar mais difíceis de usar.
+        </span>
+      </div>
 
       {!saved && (
         <div className="storage-warning" role="alert">
