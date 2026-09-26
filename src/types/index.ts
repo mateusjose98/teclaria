@@ -1,4 +1,5 @@
 export enum TipoLicao {
+  ESPECIAIS = 'ESPECIAIS',
   TECLADO = 'TECLADO',
   NUMEROS = 'NUMEROS',
   PALAVRAS = 'PALAVRAS',

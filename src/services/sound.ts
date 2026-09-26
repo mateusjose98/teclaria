@@ -14,6 +14,23 @@ let enabled = true;
 export const sound = {
   setEnabled(value: boolean) {
     enabled = value;
+    if (!value) sound.stopSpeaking();
+  },
+  canSpeak() {
+    return typeof window !== 'undefined' && 'speechSynthesis' in window;
+  },
+  stopSpeaking() {
+    if (sound.canSpeak()) window.speechSynthesis.cancel();
+  },
+  speak(text: string) {
+    if (!enabled || !sound.canSpeak()) return;
+    sound.stopSpeaking();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'pt-BR';
+    utterance.rate = 0.8;
+    const voice = window.speechSynthesis.getVoices().find((v) => v.lang === 'pt-BR');
+    if (voice) utterance.voice = voice;
+    window.speechSynthesis.speak(utterance);
   },
   play(name: SoundName) {
     if (!enabled) return;

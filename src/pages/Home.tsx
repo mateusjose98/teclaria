@@ -40,30 +40,36 @@ export function Home({
           <div className="hero-copy">
             <span className="hero-tag">
               <Sparkles size={14} />
-              {count === 15 ? 'JORNADA COMPLETA' : 'SUA JORNADA CONTINUA'}
+              {count === lessons.length ? 'JORNADA COMPLETA' : 'SUA JORNADA CONTINUA'}
             </span>
             <p className="hero-level">
-              {count === 15 ? 'O teclado é todo seu' : 'NÍVEL ' + next.nivel}
+              {count === lessons.length ? 'O teclado é todo seu' : 'NÍVEL ' + next.nivel}
             </p>
-            <h2>{count === 15 ? 'Olá, mestre do teclado!' : level.title}</h2>
+            <h2>{count === lessons.length ? 'Olá, mestre do teclado!' : level.title}</h2>
             <p>
-              {count === 15
+              {count === lessons.length
                 ? 'Explore o modo livre e descubra novos recordes.'
                 : level.subtitle + '. Vamos praticar?'}
             </p>
             <div className="hero-progress">
               <Stars
                 count={
-                  progress.licoesConcluidas.filter((id) => id.startsWith(`${next.nivel}-`)).length
+                  progress.licoesConcluidas.filter((id) =>
+                    lessons.some((l) => l.id === id && l.nivel === next.nivel),
+                  ).length
                 }
               />
               <span>
-                {progress.licoesConcluidas.filter((id) => id.startsWith(`${next.nivel}-`)).length}{' '}
+                {
+                  progress.licoesConcluidas.filter((id) =>
+                    lessons.some((l) => l.id === id && l.nivel === next.nivel),
+                  ).length
+                }{' '}
                 de 3 etapas concluídas
               </span>
             </div>
-            <PrimaryButton onClick={() => (count === 15 ? onFree() : onStart(next))}>
-              {count === 15
+            <PrimaryButton onClick={() => (count === lessons.length ? onFree() : onStart(next))}>
+              {count === lessons.length
                 ? 'Explorar modo livre'
                 : count
                   ? 'Continuar treinamento'
@@ -103,9 +109,11 @@ export function Home({
           />
           <div className="summary-bottom">
             <span>Seu progresso</span>
-            <b>{count} / 15 etapas</b>
+            <b>
+              {count} / {lessons.length} etapas
+            </b>
           </div>
-          <ProgressBar value={(count / 15) * 100} label="Progresso total" />
+          <ProgressBar value={(count / lessons.length) * 100} label="Progresso total" />
         </aside>
       </div>
       <div className="section-heading">
@@ -113,7 +121,7 @@ export function Home({
           <h2>
             Uma jornada, muitas descobertas <span>✦</span>
           </h2>
-          <p>Cinco níveis para ganhar confiança no teclado.</p>
+          <p>{levels.length} níveis para ganhar confiança no teclado.</p>
         </div>
         <button className="text-button purple-text" onClick={onLevels}>
           Ver todos os níveis <ArrowRight size={17} />
@@ -121,7 +129,9 @@ export function Home({
       </div>
       <div className="level-grid">
         {levels.map((l, i) => {
-          const completed = progress.licoesConcluidas.filter((id) => id.startsWith(`${i}-`)).length,
+          const completed = progress.licoesConcluidas.filter((id) =>
+              lessons.some((l) => l.id === id && l.nivel === i),
+            ).length,
             locked = i > progress.nivelAtual;
           return (
             <button

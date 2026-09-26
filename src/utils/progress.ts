@@ -1,4 +1,4 @@
-import { lessons } from '../data/lessons';
+import { lessons, levels } from '../data/lessons';
 import type { Licao, ProgressoUsuario, Resultado, Resumo } from '../types';
 export const accuracy = (correct: number, errors: number) =>
   correct + errors > 0 ? (correct / (correct + errors)) * 100 : 100;
@@ -15,15 +15,21 @@ export const freshProgress = (): ProgressoUsuario => ({
   estatisticas: { totalCaracteres: 0, totalErros: 0, melhorPpm: 0, melhorPrecisao: 0, sessoes: 0 },
 });
 export const unlockedLevel = (completed: string[]) => {
-  for (let n = 0; n < 5; n++)
+  for (let n = 0; n < levels.length; n++)
     if (!lessons.filter((l) => l.nivel === n).every((l) => completed.includes(l.id))) return n;
-  return 5;
+  return levels.length;
 };
 export const canPlay = (l: Licao, p: ProgressoUsuario) =>
   l.nivel <= unlockedLevel(p.licoesConcluidas) &&
-  (l.etapa === 1 || p.licoesConcluidas.includes(`${l.nivel}-${l.etapa - 1}`));
+  (l.etapa === 1 ||
+    lessons.some(
+      (previous) =>
+        previous.nivel === l.nivel &&
+        previous.etapa === l.etapa - 1 &&
+        p.licoesConcluidas.includes(previous.id),
+    ));
 export const nextLesson = (p: ProgressoUsuario) =>
-  lessons.find((l) => !p.licoesConcluidas.includes(l.id)) ?? lessons[14];
+  lessons.find((l) => !p.licoesConcluidas.includes(l.id)) ?? lessons[lessons.length - 1];
 export const achievementInfo = [
   {
     id: 'first',
@@ -47,7 +53,7 @@ export const achievementInfo = [
   {
     id: 'master',
     title: 'Mestre do teclado',
-    description: 'Conclua os cinco níveis.',
+    description: 'Conclua todos os níveis.',
     icon: 'crown',
   },
 ];
@@ -84,7 +90,7 @@ export function completeLesson(
     perfect: approved && precision === 100,
     streak: r.sequencia >= 20,
     speed: approved && speed >= 40,
-    master: level === 5,
+    master: level === levels.length,
   };
   const added = achievementInfo
     .filter((a) => conditions[a.id] && !p.conquistas.includes(a.id))

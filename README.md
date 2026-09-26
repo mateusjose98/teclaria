@@ -39,15 +39,18 @@ Os testes de navegador usam Edge no Windows e Chromium nas outras plataformas. P
 
 ## A jornada
 
-| Nível                     | Etapa 1          | Etapa 2             | Etapa 3                         |
-| ------------------------- | ---------------- | ------------------- | ------------------------------- |
-| 0 · Explorador do teclado | Letras e Shift   | Pontuação e acentos | Números, símbolos e combinações |
-| 1 · Mestre dos números    | Números simples  | Operações           | Datas, horários e valores       |
-| 2 · Caçador de palavras   | Palavras simples | Palavras médias     | Acentos e cedilha               |
-| 3 · Estoura-bolhas        | Letras           | Palavras curtas     | Mais bolhas e palavras maiores  |
-| 4 · Mestre da digitação   | Frases curtas    | Frases médias       | Pequenos textos                 |
+| Nível                     | Etapa 1          | Etapa 2               | Etapa 3                         |
+| ------------------------- | ---------------- | --------------------- | ------------------------------- |
+| 0 · Explorador do teclado | Letras e Shift   | Pontuação e acentos   | Números, símbolos e combinações |
+| 1 · Teclas especiais      | Enter e Espaço   | Backspace, Tab e Ctrl | Revisão com imagens e voz       |
+| 2 · Mestre dos números    | Números simples  | Operações             | Datas, horários e valores       |
+| 3 · Caçador de palavras   | Palavras simples | Palavras médias       | Acentos e cedilha               |
+| 4 · Estoura-bolhas        | Letras           | Palavras curtas       | Mais bolhas e palavras maiores  |
+| 5 · Mestre da digitação   | Frases curtas    | Frases médias         | Pequenos textos                 |
 
 Cada nível possui **exatamente três etapas**, feitas em ordem. Concluir as três libera o próximo nível. Etapas concluídas continuam disponíveis para repetição. Concluir a última etapa libera o **Modo Livre**, com rodadas renováveis de palavras, frases e bolhas, sem limite de sessões.
+
+O nível de teclas especiais oferece ilustrações SVG, explicações e pronúncia automática, com botão para repetir. A voz usa a síntese de fala do navegador em português e respeita o controle global de som; a disponibilidade e a voz dependem do navegador e do sistema. Dentro do campo de prática, Tab é uma resposta; pressione Esc para liberar o foco e voltar a navegar. As etapas antigas concluídas são preservadas quando a trilha recebe novos níveis.
 
 Nos níveis 0 e 1 não há cronômetro visível nem velocidade mínima. A referência visual é o teclado brasileiro **ABNT2**; outros layouts podem usar combinações diferentes. A entrada usa o texto produzido pelo navegador, incluindo composição de acentos. Erros são contabilizados e mantêm o próximo caractere esperado, permitindo tentar novamente. Backspace não apaga caracteres corretos nem remove erros das estatísticas; colar texto é desabilitado durante os treinos.
 
@@ -61,7 +64,7 @@ O jogo oferece três vidas. Digitar a primeira letra seleciona a bolha correspon
 - **XP da primeira conclusão:** recompensa configurada na lição; repetir ou praticar no modo livre rende 25 XP.
 - **Bônus:** 100 XP ao concluir um nível pela primeira vez, 30 XP com precisão de pelo menos 95%, 20 XP ao superar um recorde pessoal após a primeira sessão.
 - Tentativas sem sucesso registram caracteres e erros, mas não liberam etapas nem concedem XP de conclusão. Recordes de PPM e precisão são obtidos em sessões aprovadas.
-- Conquistas: primeiro passo, 100% de precisão, 20 itens sem erro, 40 PPM e conclusão dos cinco níveis. São concedidas uma única vez.
+- Conquistas: primeiro passo, 100% de precisão, 20 itens sem erro, 40 PPM e conclusão de todos os níveis. São concedidas uma única vez.
 
 Não há requisito de velocidade para avançar. A configuração opcional `objetivo.precisaoMinima` pode exigir precisão em novas lições; as lições iniciais priorizam conclusão e prática, sem uma barreira punitiva.
 
@@ -70,7 +73,7 @@ Não há requisito de velocidade para avançar. A configuração opcional `objet
 ```text
 src/
   components/       Teclado, entrada, mascote e elementos reutilizáveis
-  data/lessons/     Conteúdos dos cinco níveis, em arquivos independentes
+  data/lessons/     Conteúdos dos níveis, em arquivos independentes
   hooks/            Estado de progresso, exercícios e jogo
   pages/            Início, níveis, treino, bolhas, resultados e preferências
   services/         Repositório local e áudio centralizado

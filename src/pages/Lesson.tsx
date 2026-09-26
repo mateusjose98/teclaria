@@ -1,3 +1,5 @@
+import { SpecialKey } from '../components/SpecialKey';
+import { TipoLicao } from '../types';
 import { Pause, ArrowLeft, Play, Target, Flame, Clock3, Zap } from 'lucide-react';
 import { useTypingExercise } from '../hooks/useTypingExercise';
 import { Keyboard } from '../components/Keyboard';
@@ -16,6 +18,7 @@ export function Lesson({
   onExit: () => void;
   suspended?: boolean;
 }) {
+  const special = lesson.tipo === TipoLicao.ESPECIAIS;
   const engine = useTypingExercise(lesson, onFinish, suspended);
   const { state, seconds, paused } = engine;
   const text = lesson.exercicios[Math.min(state.index, lesson.exercicios.length - 1)];
@@ -66,7 +69,7 @@ export function Lesson({
         )}
         <span>
           {Math.min(state.index + 1, lesson.exercicios.length)} / {lesson.exercicios.length}{' '}
-          {lesson.nivel === 2 ? 'palavras' : 'itens'}
+          {lesson.tipo === TipoLicao.PALAVRAS ? 'palavras' : 'itens'}
         </span>
       </div>
       <section
@@ -76,22 +79,26 @@ export function Lesson({
         <p className="eyebrow">
           {lesson.nivel === 0 ? 'VAMOS ENCONTRAR ESTA TECLA' : 'DIGITE O CONTEÚDO ABAIXO'}
         </p>
-        <div
-          className={`target-text ${lesson.nivel === 0 ? 'single-character' : ''}`}
-          aria-label={text}
-        >
-          {Array.from(text).map((c, i) => (
-            <span
-              key={`${state.index}-${i}`}
-              className={
-                i < state.position ? 'typed' : i === state.position ? 'current-character' : ''
-              }
-            >
-              {c === ' ' && i === state.position ? '␣' : c}
-            </span>
-          ))}
-        </div>
-        <TypingInput onInput={engine.input} disabled={paused} />
+        {special ? (
+          <SpecialKey key={state.index} character={text} paused={paused || suspended} />
+        ) : (
+          <div
+            className={`target-text ${lesson.nivel === 0 ? 'single-character' : ''}`}
+            aria-label={text}
+          >
+            {Array.from(text).map((c, i) => (
+              <span
+                key={`${state.index}-${i}`}
+                className={
+                  i < state.position ? 'typed' : i === state.position ? 'current-character' : ''
+                }
+              >
+                {c === ' ' && i === state.position ? '␣' : c}
+              </span>
+            ))}
+          </div>
+        )}
+        <TypingInput specialKeys={special} onInput={engine.input} disabled={paused} />
         <p
           className={`feedback ${state.feedback.startsWith('Quase') ? 'gentle-error' : ''}`}
           aria-live="polite"

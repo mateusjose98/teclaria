@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { accuracy, ppm, freshProgress, unlockedLevel, canPlay, completeLesson } from './progress';
-import { lessons } from '../data/lessons';
+import { lessons, levels } from '../data/lessons';
 import type { Resultado } from '../types';
 const result: Resultado = {
   licaoId: '0-1',
@@ -25,9 +25,9 @@ describe('métricas por caractere', () => {
 });
 describe('conteúdo e progressão', () => {
   it('contém cinco níveis com exatamente três etapas cada', () => {
-    expect(lessons).toHaveLength(15);
-    expect(new Set(lessons.map((l) => l.id)).size).toBe(15);
-    for (let n = 0; n < 5; n++) {
+    expect(lessons).toHaveLength(lessons.length);
+    expect(new Set(lessons.map((l) => l.id)).size).toBe(lessons.length);
+    for (let n = 0; n < levels.length; n++) {
       expect(lessons.filter((l) => l.nivel === n).map((l) => l.etapa)).toEqual([1, 2, 3]);
     }
     expect(lessons.every((l) => l.exercicios.length > 0)).toBe(true);
@@ -35,7 +35,7 @@ describe('conteúdo e progressão', () => {
   it('libera próximo nível apenas depois das três etapas', () => {
     expect(unlockedLevel(['0-1', '0-2'])).toBe(0);
     expect(unlockedLevel(['0-1', '0-2', '0-3'])).toBe(1);
-    expect(unlockedLevel(lessons.map((l) => l.id))).toBe(5);
+    expect(unlockedLevel(lessons.map((l) => l.id))).toBe(levels.length);
   });
   it('impede saltos e permite repetir etapas anteriores', () => {
     const p = freshProgress();
@@ -49,8 +49,8 @@ describe('conteúdo e progressão', () => {
   it('conclui toda a jornada e libera o modo livre', () => {
     let p = freshProgress();
     for (const l of lessons) p = completeLesson(p, l, { ...result, licaoId: l.id }).progress;
-    expect(p.licoesConcluidas).toHaveLength(15);
-    expect(p.nivelAtual).toBe(5);
+    expect(p.licoesConcluidas).toHaveLength(lessons.length);
+    expect(p.nivelAtual).toBe(levels.length);
     expect(p.conquistas).toContain('master');
   });
 });
@@ -110,9 +110,9 @@ describe('XP e conclusão', () => {
   it('modo livre registra resultados sem criar etapas extras', () => {
     const p = freshProgress();
     p.licoesConcluidas = lessons.map((l) => l.id);
-    p.nivelAtual = 5;
+    p.nivelAtual = levels.length;
     const r = completeLesson(p, { ...lessons[6], id: 'free' }, result, true);
-    expect(r.progress.licoesConcluidas).toHaveLength(15);
+    expect(r.progress.licoesConcluidas).toHaveLength(lessons.length);
     expect(r.summary.xp).toBe(55);
   });
 });

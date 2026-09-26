@@ -3,6 +3,13 @@ import { restore, storage, STORAGE_KEY } from './storage';
 import { freshProgress } from '../utils/progress';
 afterEach(() => vi.unstubAllGlobals());
 describe('persistência local', () => {
+  it('preserva etapas antigas ao inserir o nível de teclas especiais', () => {
+    const ids = ['0-1', '0-2', '0-3', '1-1', '1-2'];
+    const restored = restore(JSON.stringify({ licoesConcluidas: ids }));
+    expect(restored.licoesConcluidas).toEqual(ids);
+    expect(restored.nivelAtual).toBe(1);
+    expect(restore(JSON.stringify(restored))).toEqual(restored);
+  });
   it('recupera dados e preferência de som', () => {
     const p = {
       ...freshProgress(),

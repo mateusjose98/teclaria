@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
+import { lessons } from '../src/data/lessons';
 const key = 'teclaria.progress.v1';
 async function createUser(page: Page) {
   await page.goto('/');
@@ -26,7 +27,10 @@ async function seed(page: Page, completed: number) {
         key,
         JSON.stringify({
           nome: 'Ana',
-          licoesConcluidas: ids.slice(0, completed),
+          licoesConcluidas: [
+            ...ids.slice(0, completed),
+            ...(completed >= 3 ? ['keys-1', 'keys-2', 'keys-3'] : []),
+          ],
           xp: 850,
           maiorSequencia: 12,
           conquistas: ['first'],
@@ -77,7 +81,7 @@ test('onboarding, conclusão, erros, persistência, repetição e reset', async 
   await expect(page.getByLabel('Olá! Como podemos chamar você?')).toBeVisible();
   expect(errors).toEqual([]);
 });
-test('15 etapas, teclado acentuado e desbloqueio real do nível 1', async ({ page }) => {
+test('etapas da jornada, teclado acentuado e desbloqueio real do nível 1', async ({ page }) => {
   await createUser(page);
   await typeCurrentLesson(page);
   await page.getByRole('button', { name: 'Continuar jornada' }).click();
@@ -86,8 +90,9 @@ test('15 etapas, teclado acentuado e desbloqueio real do nível 1', async ({ pag
   await typeCurrentLesson(page);
   await page.getByRole('button', { name: 'Voltar ao início' }).click();
   await page.getByRole('button', { name: 'Níveis', exact: true }).click();
-  await expect(page.locator('.stage')).toHaveCount(15);
-  await expect(page.getByRole('button', { name: /ETAPA 1 Um número/ })).toBeEnabled();
+  await expect(page.locator('.stage')).toHaveCount(lessons.length);
+  await expect(page.getByRole('button', { name: /ETAPA 1 Espaço para suas ideias/ })).toBeEnabled();
+  await expect(page.getByRole('button', { name: /ETAPA 1 Um número/ })).toBeDisabled();
 });
 test('exercícios cabem nos desktops e layout se adapta ao celular', async ({ page }) => {
   await createUser(page);
@@ -169,7 +174,7 @@ test('perder três vidas não libera a próxima etapa', async ({ page }) => {
   await page.clock.runFor(47000);
   await expect(page.getByRole('heading', { name: 'Vamos tentar mais uma vez?' })).toBeVisible();
   const saved = await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!), key);
-  expect(saved.licoesConcluidas).toHaveLength(9);
+  expect(saved.licoesConcluidas).toHaveLength(12);
   expect(saved.xp).toBe(850);
 });
 

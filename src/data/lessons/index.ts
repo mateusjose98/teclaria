@@ -3,12 +3,23 @@ import { level1 } from './level-1';
 import { level2 } from './level-2';
 import { level3 } from './level-3';
 import { level4 } from './level-4';
-export const lessons = [...level0, ...level1, ...level2, ...level3, ...level4];
+import { specialKeyLessons } from './special-keys';
+export const lessons = [
+  ...level0,
+  ...specialKeyLessons,
+  ...[...level1, ...level2, ...level3, ...level4].map((l) => ({ ...l, nivel: l.nivel + 1 })),
+];
 export const levels = [
   {
     title: 'Explorador do teclado',
     subtitle: 'Conheça cada cantinho do teclado',
     color: 'purple',
+    icon: 'keyboard',
+  },
+  {
+    title: 'Teclas especiais',
+    subtitle: 'Veja, ouça e descubra as teclas do dia a dia',
+    color: 'blue',
     icon: 'keyboard',
   },
   {

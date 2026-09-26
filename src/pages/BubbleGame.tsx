@@ -23,7 +23,9 @@ export function BubbleGame({
           <ArrowLeft size={18} />
           Sair da etapa
         </button>
-        <span>NÍVEL 3 · ETAPA {lesson.etapa} DE 3</span>
+        <span>
+          NÍVEL {lesson.nivel} · ETAPA {lesson.etapa} DE 3
+        </span>
         <button className="text-button" onClick={pause} disabled={status !== 'playing'}>
           <Pause size={17} />
           Pausar

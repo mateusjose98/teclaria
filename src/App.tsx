@@ -1,3 +1,4 @@
+import { levels } from './data/lessons';
 import { useRef, useState } from 'react';
 import { Keyboard, ShieldCheck } from 'lucide-react';
 import { Header, type Page } from './components/Header';
@@ -31,7 +32,7 @@ export default function App() {
     window.scrollTo(0, 0);
   };
   const start = (l: Licao, isFree = false) => {
-    if (isFree ? progress.nivelAtual < 5 : !canPlay(l, progress)) return;
+    if (isFree ? progress.nivelAtual < levels.length : !canPlay(l, progress)) return;
     finished.current = false;
     setActive(l);
     setFree(isFree);
@@ -49,7 +50,7 @@ export default function App() {
       navigate('free');
       return;
     }
-    if (progress.nivelAtual === 5) {
+    if (progress.nivelAtual === levels.length) {
       navigate('free');
       return;
     }
@@ -137,7 +138,7 @@ export default function App() {
               return ok;
             }}
           />
-        ) : page === 'free' && progress.nivelAtual === 5 ? (
+        ) : page === 'free' && progress.nivelAtual === levels.length ? (
           <FreeMode onStart={(l) => start(l, true)} />
         ) : (
           <Home

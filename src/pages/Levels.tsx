@@ -36,7 +36,11 @@ export function Levels({
                 <h2>{level.title}</h2>
               </div>
               <Stars
-                count={progress.licoesConcluidas.filter((id) => id.startsWith(`${i}-`)).length}
+                count={
+                  progress.licoesConcluidas.filter((id) =>
+                    lessons.some((l) => l.id === id && l.nivel === i),
+                  ).length
+                }
               />
             </div>
             <div className="stage-grid">
@@ -74,17 +78,21 @@ export function Levels({
           </section>
         ))}
       </div>
-      <button disabled={progress.nivelAtual < 5} className="free-banner" onClick={onFree}>
+      <button
+        disabled={progress.nivelAtual < levels.length}
+        className="free-banner"
+        onClick={onFree}
+      >
         <Icon name="sparkles" />
         <div>
           <h2>Modo Livre</h2>
           <p>
-            {progress.nivelAtual < 5
+            {progress.nivelAtual < levels.length
               ? 'Conclua todos os níveis para praticar sem limites.'
               : 'Sua jornada continua. Pratique do seu jeito!'}
           </p>
         </div>
-        {progress.nivelAtual < 5 ? <Lock /> : <Play />}
+        {progress.nivelAtual < levels.length ? <Lock /> : <Play />}
       </button>
     </main>
   );

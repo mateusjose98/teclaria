@@ -4,10 +4,12 @@ export function TypingInput({
   disabled = false,
   label = 'Digite aqui',
   onBlur,
+  specialKeys = false,
 }: {
   onInput: (text: string) => void;
   disabled?: boolean;
   label?: string;
+  specialKeys?: boolean;
   onBlur?: () => void;
 }) {
   const [buffer, setBuffer] = useState('');
@@ -47,6 +49,28 @@ export function TypingInput({
         setBuffer('');
       }}
       onKeyDown={(e) => {
+        if (specialKeys && !e.repeat && !e.nativeEvent.isComposing) {
+          if (e.key === 'Escape') {
+            e.currentTarget.blur();
+            return;
+          }
+          const keys: Record<string, string> = {
+            Enter: '\n',
+            ' ': ' ',
+            Backspace: '\b',
+            Tab: '\t',
+            Control: '\u0011',
+          };
+          if (keys[e.key] && !e.altKey && !e.metaKey && (!e.ctrlKey || e.key === 'Control')) {
+            e.preventDefault();
+            onInput(keys[e.key]);
+            return;
+          }
+        }
+        if (specialKeys && e.repeat) {
+          e.preventDefault();
+          return;
+        }
         if (e.key === 'Tab' || e.key === 'Escape') return;
         if (e.ctrlKey || e.metaKey) {
           if (['v', 'a', 'z'].includes(e.key.toLowerCase())) e.preventDefault();

@@ -370,3 +370,18 @@
   color: #bb9edf;
   margin-bottom: 13px;
 }
+
+.special-key-guide {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.special-key-guide svg {
+  width: min(100%, 280px);
+  height: auto;
+}
+.special-key-guide p {
+  font-size: 14px;
+  max-width: 560px;
+}

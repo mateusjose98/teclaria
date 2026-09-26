@@ -11,10 +11,17 @@ export function restore(raw: string | null): ProgressoUsuario {
     if (!d || typeof d !== 'object') return p;
     p.nome = typeof d.nome === 'string' ? d.nome.trim().slice(0, 30) : '';
     const ids = Array.isArray(d.licoesConcluidas) ? d.licoesConcluidas : [];
-    for (const l of lessons) {
+    // Validate the original journey separately to retain progress when inserting levels.
+    const original = lessons.filter((l) => /^\d+-\d+$/.test(l.id));
+    for (const l of original) {
       if (ids.includes(l.id)) p.licoesConcluidas.push(l.id);
       else break;
     }
+    for (const l of lessons.filter((l) => l.id.startsWith('keys-'))) {
+      if (p.licoesConcluidas.includes('0-3') && ids.includes(l.id)) p.licoesConcluidas.push(l.id);
+      else break;
+    }
+    p.licoesConcluidas = lessons.filter((l) => p.licoesConcluidas.includes(l.id)).map((l) => l.id);
     p.nivelAtual = unlockedLevel(p.licoesConcluidas);
     p.xp = finite(d.xp);
     p.maiorSequencia = finite(d.maiorSequencia);
