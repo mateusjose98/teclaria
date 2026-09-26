@@ -1,0 +1,632 @@
+@media (min-width: 1600px) {
+  .dashboard,
+  .page,
+  .app-footer {
+    max-width: 1290px;
+  }
+  .header-inner {
+    max-width: 1338px;
+  }
+  .dashboard {
+    padding-top: 43px;
+  }
+  .hero-card {
+    min-height: 335px;
+    padding: 34px 38px;
+  }
+  .hero-copy h2 {
+    font-size: 36px;
+  }
+  .hero-copy > p:not(.hero-level) {
+    font-size: 14px;
+  }
+  .home-grid {
+    grid-template-columns: minmax(0, 1fr) 305px;
+    gap: 25px;
+  }
+  .mascot-scene {
+    right: 40px;
+    top: 42px;
+    transform: scale(1.12) rotate(-7deg);
+  }
+  .hero-copy {
+    width: 63%;
+  }
+  .journey-summary {
+    padding: 25px;
+  }
+  .journey-summary > .stat {
+    margin: 20px 0;
+  }
+  .section-heading {
+    margin-top: 36px;
+  }
+  .level-card {
+    min-height: 220px;
+    padding: 23px 20px 0;
+  }
+  .level-card h3 {
+    font-size: 17px;
+    max-width: 150px;
+    min-height: 44px;
+  }
+  .level-card-bottom {
+    padding: 13px 0;
+    font-size: 10px;
+  }
+  .home-bottom {
+    margin-top: 26px;
+  }
+  .tip-card,
+  .achievement-link {
+    padding: 22px;
+  }
+  .tip-card h3,
+  .achievement-link h3 {
+    font-size: 14px;
+  }
+  .tip-card p,
+  .achievement-link p {
+    font-size: 11px;
+  }
+  .exercise-shell {
+    max-width: 1100px;
+    padding-top: 28px;
+  }
+  .exercise-title {
+    margin: 28px 0 22px;
+  }
+  .typing-card {
+    padding: 33px 40px 18px;
+  }
+  .key {
+    height: 37px;
+  }
+  .keyboard-wrap {
+    margin-top: 20px;
+  }
+  .game-area {
+    height: 480px;
+  }
+}
+@media (max-width: 1250px) {
+  .dashboard,
+  .page,
+  .app-footer {
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+  .app-footer {
+    width: auto;
+  }
+  .header-inner nav {
+    margin-left: 0;
+  }
+  .hero-copy h2 {
+    font-size: 28px;
+  }
+  .mascot-scene {
+    right: 2px;
+    transform: scale(0.88) rotate(-7deg);
+  }
+  .hero-card {
+    padding: 25px;
+  }
+  .home-grid {
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+  .hero-copy {
+    width: 65%;
+  }
+  .level-card {
+    padding: 15px 12px 0;
+  }
+  .level-card-bottom {
+    font-size: 8px;
+  }
+  .settings-page {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+@media (max-width: 950px) {
+  .header-inner {
+    gap: 12px;
+  }
+  .header-inner nav {
+    gap: 2px;
+  }
+  .header-inner nav button {
+    padding: 10px;
+    font-size: 12px;
+    gap: 5px;
+  }
+  .profile-button b,
+  .profile-button > svg {
+    display: none;
+  }
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+  .journey-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px;
+  }
+  .journey-summary .section-kicker,
+  .journey-summary .summary-bottom,
+  .journey-summary > .progress-track {
+    display: none;
+  }
+  .journey-summary > .stat {
+    margin: 0;
+  }
+  .hero-card {
+    min-height: 310px;
+  }
+  .mascot-scene {
+    right: 60px;
+    transform: rotate(-7deg);
+  }
+  .level-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .home-bottom {
+    grid-template-columns: 1fr;
+  }
+  .stage-grid {
+    grid-template-columns: 1fr;
+  }
+  .achievement-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .free-grid {
+    gap: 12px;
+  }
+  .free-card {
+    padding: 25px 20px;
+  }
+  .welcome-page {
+    gap: 25px;
+  }
+  .welcome-copy h1 {
+    font-size: 39px;
+  }
+  .welcome-visual .mascot-scene {
+    transform: scale(1.05) rotate(-7deg);
+    right: 15px;
+    top: 62px;
+  }
+  .welcome-sticker {
+    left: 65px;
+  }
+  .welcome-benefits {
+    gap: 15px;
+  }
+  .welcome-benefits span {
+    font-size: 10px;
+  }
+  .welcome-visual {
+    height: 340px;
+  }
+  .hero-copy h2 {
+    font-size: 32px;
+  }
+  .game-stats {
+    gap: 8px;
+    font-size: 10px;
+  }
+  .exercise-stats {
+    gap: 15px;
+  }
+}
+@media (max-width: 650px) {
+  .app-header {
+    height: auto;
+    min-height: 76px;
+  }
+  .header-inner {
+    flex-wrap: wrap;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+  .brand {
+    font-size: 25px;
+  }
+  .brand-icon {
+    width: 35px;
+    height: 34px;
+  }
+  .header-actions {
+    margin-left: auto;
+    gap: 10px;
+  }
+  .header-inner nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .header-inner nav button {
+    font-size: 11px;
+    padding: 9px 7px;
+  }
+  .header-inner nav button svg {
+    width: 14px;
+  }
+  .dashboard,
+  .page {
+    margin: 0;
+    padding: 25px 20px;
+  }
+  .page-heading {
+    margin-bottom: 22px;
+  }
+  .page-heading h1 {
+    font-size: 27px;
+  }
+  .page-heading p {
+    font-size: 12px;
+  }
+  .little-label {
+    display: none;
+  }
+  .greeting {
+    font-size: 8px;
+  }
+  .hero-card {
+    padding: 23px;
+    min-height: 370px;
+    align-items: flex-start;
+  }
+  .hero-copy {
+    width: 100%;
+  }
+  .hero-copy h2 {
+    font-size: 28px;
+    max-width: 230px;
+  }
+  .hero-copy > p:not(.hero-level) {
+    max-width: 210px;
+  }
+  .hero-progress {
+    margin-top: 16px;
+  }
+  .mascot-scene {
+    right: -54px;
+    top: 151px;
+    transform: scale(0.57) rotate(-7deg);
+    transform-origin: center;
+  }
+  .hero-card::after {
+    right: -140px;
+    top: 170px;
+  }
+  .hero-copy .primary-button {
+    margin-top: 9px;
+  }
+  .hero-footnote {
+    max-width: 185px;
+    font-size: 8px;
+  }
+  .journey-summary {
+    padding: 17px 12px;
+    gap: 8px;
+  }
+  .journey-summary .stat {
+    gap: 7px;
+  }
+  .journey-summary .stat .icon-box {
+    width: 27px;
+    height: 29px;
+  }
+  .journey-summary .stat strong {
+    font-size: 18px;
+  }
+  .journey-summary .stat > div > span {
+    font-size: 8px;
+  }
+  .section-heading {
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .section-heading h2 {
+    font-size: 18px;
+  }
+  .section-heading p {
+    font-size: 11px;
+  }
+  .section-heading > .text-button {
+    font-size: 10px;
+    min-width: 85px;
+    text-align: right;
+  }
+  .level-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .level-card {
+    min-height: 200px;
+    padding: 18px 15px 0;
+  }
+  .level-card-bottom {
+    font-size: 9px;
+  }
+  .home-bottom {
+    gap: 12px;
+  }
+  .app-footer {
+    margin: 0 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 9px;
+  }
+  .welcome-page {
+    display: flex;
+    flex-direction: column;
+    padding: 35px 25px;
+    gap: 18px;
+  }
+  .welcome-copy h1 {
+    font-size: 38px;
+  }
+  .welcome-copy > p {
+    font-size: 14px;
+  }
+  .welcome-copy form {
+    max-width: none;
+  }
+  .welcome-visual {
+    width: 100%;
+    height: 265px;
+    order: 2;
+  }
+  .welcome-visual .mascot-scene {
+    transform: scale(0.86) rotate(-7deg);
+    top: 0;
+    right: calc(50% - 145px);
+  }
+  .welcome-sticker {
+    bottom: 3px;
+    left: calc(50% - 105px);
+  }
+  .welcome-benefits {
+    order: 3;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0;
+    padding-top: 20px;
+    gap: 15px;
+  }
+  .achievement-grid {
+    grid-template-columns: 1fr;
+  }
+  .record-grid {
+    grid-template-columns: 1fr;
+  }
+  .free-grid {
+    grid-template-columns: 1fr;
+  }
+  .settings-card {
+    padding: 23px;
+  }
+  .inline-form {
+    flex-direction: column;
+  }
+  .sound-setting {
+    gap: 12px;
+  }
+  .sound-toggle {
+    padding: 11px;
+  }
+  .level-detail {
+    padding: 18px;
+  }
+  .level-detail-header h2 {
+    font-size: 17px;
+  }
+  .level-detail-header > .stars {
+    gap: 1px;
+  }
+  .level-detail-header > .stars svg {
+    width: 14px;
+  }
+  .exercise-shell {
+    padding: 16px;
+  }
+  .exercise-heading {
+    gap: 6px;
+  }
+  .exercise-heading > span {
+    font-size: 8px;
+  }
+  .exercise-heading .text-button {
+    font-size: 10px;
+  }
+  .exercise-title h1 {
+    font-size: 24px;
+  }
+  .exercise-title p {
+    font-size: 11px;
+  }
+  .exercise-stats {
+    gap: 9px;
+    font-size: 10px;
+  }
+  .typing-card {
+    padding: 20px 17px 12px;
+  }
+  .target-text {
+    font-size: 23px;
+  }
+  .single-character {
+    font-size: 46px;
+  }
+  .key {
+    height: 25px;
+    font-size: 9px;
+    min-width: 0;
+  }
+  .key-row {
+    gap: 3px;
+  }
+  .key.shift {
+    font-size: 7px;
+  }
+  .keyboard {
+    padding: 8px;
+  }
+  .keyboard-note {
+    font-size: 8px;
+  }
+  .key-instruction {
+    font-size: 11px;
+  }
+  .game-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 10px;
+  }
+  .game-area {
+    height: 340px;
+  }
+  .bubble {
+    min-width: 53px;
+    min-height: 53px;
+    padding: 12px;
+    font-size: 15px;
+  }
+  .game-overlay h2 {
+    font-size: 21px;
+  }
+  .game-overlay p {
+    font-size: 12px;
+  }
+  .results-page {
+    padding: 28px 20px;
+  }
+  .results-page h1 {
+    font-size: 29px;
+  }
+  .result-stats {
+    grid-template-columns: 1fr;
+    padding: 20px 30px;
+    gap: 18px;
+  }
+  .result-stats .stat strong {
+    font-size: 23px;
+  }
+  .result-details {
+    flex-wrap: wrap;
+    gap: 10px 15px;
+    font-size: 11px;
+  }
+  .result-actions {
+    flex-direction: column;
+  }
+  .modal {
+    padding: 25px;
+  }
+  .modal-actions {
+    flex-direction: column;
+  }
+  .new-achievements > span {
+    margin: 6px;
+  }
+  .free-banner {
+    gap: 13px;
+  }
+  .free-banner h2 {
+    font-size: 19px;
+  }
+  .free-banner p {
+    font-size: 11px;
+  }
+}
+@media (min-width: 951px) and (max-height: 800px) {
+  .app-header {
+    height: 72px;
+  }
+  .dashboard {
+    padding-top: 25px;
+  }
+  .page-heading {
+    margin-bottom: 20px;
+  }
+  .page-heading h1 {
+    font-size: 30px;
+  }
+  .hero-card {
+    min-height: 280px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+  }
+  .hero-level {
+    margin-top: 13px;
+  }
+  .hero-copy h2 {
+    font-size: 29px;
+  }
+  .hero-progress {
+    margin-bottom: 14px;
+  }
+  .journey-summary {
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+  .journey-summary > .stat {
+    margin: 12px 0;
+  }
+  .section-heading {
+    margin-top: 23px;
+    margin-bottom: 14px;
+  }
+  .level-card {
+    min-height: 188px;
+  }
+  .home-bottom {
+    margin-top: 18px;
+  }
+  .exercise-shell {
+    padding-top: 12px;
+  }
+  .exercise-title {
+    margin: 13px 0 12px;
+  }
+  .typing-card.beginner {
+    padding: 15px 30px 9px;
+  }
+  .single-character {
+    font-size: 49px;
+    min-height: 58px;
+    margin: 9px auto 12px;
+  }
+  .keyboard-wrap {
+    margin-top: 8px;
+  }
+  .key {
+    height: 27px;
+  }
+  .keyboard-note {
+    margin-top: 5px;
+  }
+  .game-area {
+    height: 340px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .popped {
+    opacity: 0;
+  }
+}

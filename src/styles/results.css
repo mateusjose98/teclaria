@@ -1,0 +1,120 @@
+.results-page {
+  max-width: 850px;
+  padding: 38px 24px;
+  margin: auto;
+  text-align: center;
+}
+.result-medal {
+  display: grid;
+  place-items: center;
+  width: 103px;
+  height: 103px;
+  margin: 0 auto 21px;
+  border-radius: 50%;
+  background: #eee5fc;
+  color: #a083d3;
+  outline: 1px dashed #c8afe4;
+  outline-offset: -9px;
+  animation: appear 0.4s ease-out;
+}
+.results-page h1 {
+  margin: 9px 0 10px;
+  font-size: 35px;
+}
+.results-page > p:not(.eyebrow) {
+  font-size: 14px;
+}
+.record-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff2da;
+  color: #af873f;
+  padding: 7px 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-top: 14px;
+}
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 28px;
+  background: white;
+  border: 1px solid #e7dff0;
+  padding: 26px;
+  border-radius: 16px;
+  text-align: left;
+}
+.result-details {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 16px 0;
+  font-size: 12px;
+  color: #9c8bab;
+}
+.result-details strong {
+  color: #9b7bbf;
+}
+.new-achievements {
+  padding: 17px;
+  border-radius: 12px;
+  background: #f2ecfa;
+  margin: 19px 0;
+}
+.new-achievements h2 {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.new-achievements > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #9373b8;
+  margin: 0 10px;
+}
+.result-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin: 23px 0 12px;
+}
+.storage-warning {
+  font-size: 12px;
+  text-align: center;
+  padding: 10px;
+  background: #fff1d7;
+  color: #8f672b;
+}
+.skip-link {
+  position: fixed;
+  top: -80px;
+  left: 10px;
+  z-index: 100;
+  padding: 12px;
+  background: white;
+  color: #6e4ca5;
+  border: 2px solid #9271c3;
+  border-radius: 8px;
+}
+.skip-link:focus {
+  top: 10px;
+}
+@keyframes pop {
+  to {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+@keyframes appear {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

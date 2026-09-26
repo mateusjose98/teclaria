@@ -1,0 +1,181 @@
+.mascot-scene {
+  width: 290px;
+  height: 270px;
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  top: 34px;
+  transform: rotate(-7deg);
+}
+.mascot-body {
+  position: absolute;
+  width: 184px;
+  height: 149px;
+  left: 55px;
+  top: 74px;
+  background: linear-gradient(145deg, #b897ee, #9e78db);
+  border: 3px solid #946ecb;
+  border-radius: 30px;
+  box-shadow:
+    0 9px 0 #8d65c0,
+    0 12px 0 #c2a2e2;
+  transform: rotate(-2deg);
+  z-index: 3;
+}
+.mascot-body::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 7px;
+  right: 9px;
+  bottom: 5px;
+  border: 2px solid #ceb1f6;
+  border-radius: 22px;
+  opacity: 0.8;
+}
+.mascot-eye {
+  position: absolute;
+  width: 8px;
+  height: 13px;
+  background: #4b3569;
+  top: 31px;
+  border-radius: 5px;
+}
+.mascot-eye.left {
+  left: 58px;
+}
+.mascot-eye.right {
+  right: 51px;
+}
+.mascot-cheek {
+  position: absolute;
+  width: 16px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d594c9;
+  top: 44px;
+}
+.mascot-cheek.left {
+  left: 38px;
+}
+.mascot-cheek.right {
+  right: 31px;
+}
+.mascot-smile {
+  position: absolute;
+  left: 84px;
+  top: 41px;
+  width: 15px;
+  height: 10px;
+  border-bottom: 3px solid #543671;
+  border-radius: 50%;
+}
+.mascot-keys {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  position: absolute;
+  top: 73px;
+  left: 20px;
+  right: 20px;
+}
+.mascot-keys i {
+  display: block;
+  height: 15px;
+  background: #e5d4fa;
+  border-radius: 4px;
+  box-shadow: 0 2px 0 #9973ca;
+}
+.mascot-space {
+  position: absolute;
+  bottom: 14px;
+  left: 50px;
+  right: 43px;
+  height: 12px;
+  background: #e5d4fa;
+  border-radius: 4px;
+  box-shadow: 0 2px 0 #9973ca;
+}
+.mascot-hand {
+  position: absolute;
+  top: 139px;
+  background: #ac84e2;
+  border: 2px solid #956bc9;
+  width: 39px;
+  height: 17px;
+  border-radius: 15px;
+}
+.mascot-hand.left {
+  left: 27px;
+  transform: rotate(25deg);
+  z-index: 2;
+}
+.mascot-hand.right {
+  right: 13px;
+  transform: rotate(-32deg);
+  z-index: 2;
+}
+.mascot-shadow {
+  position: absolute;
+  left: 44px;
+  top: 233px;
+  width: 220px;
+  height: 22px;
+  border-radius: 50%;
+  background: #d9c8ed;
+  filter: blur(2px);
+}
+.float-key {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 45px;
+  border: 1.5px solid #ddd0f0;
+  background: #faf6ff;
+  border-radius: 11px;
+  box-shadow: 0 4px 0 #d7c7ec;
+  color: #9d7ecb;
+  font-size: 23px;
+  font-weight: 900;
+  z-index: 4;
+}
+.float-a {
+  top: 23px;
+  left: 46px;
+  transform: rotate(-12deg);
+}
+.float-s {
+  top: 42px;
+  right: 14px;
+  transform: rotate(19deg);
+  width: 36px;
+  height: 38px;
+  font-size: 19px;
+}
+.float-star {
+  bottom: 13px;
+  left: 8px;
+  transform: rotate(11deg);
+  width: 33px;
+  height: 35px;
+  color: #d9b156;
+  background: #fff6de;
+  border-color: #f0e3c3;
+  box-shadow: 0 3px 0 #e9d9b5;
+}
+.scene-spark {
+  position: absolute;
+  color: #b293d9;
+  font-size: 29px;
+}
+.spark-one {
+  top: 13px;
+  left: 172px;
+}
+.spark-two {
+  right: 0;
+  bottom: 58px;
+  font-size: 21px;
+  color: #bda0df;
+}

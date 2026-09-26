@@ -1,0 +1,269 @@
+.page {
+  padding-top: 38px;
+  min-height: calc(100vh - 145px);
+}
+.page > .page-heading {
+  margin-bottom: 30px;
+}
+.page .page-heading .eyebrow {
+  margin-bottom: 9px;
+}
+.levels-list {
+  display: grid;
+  gap: 16px;
+}
+.level-detail {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e6e1ed;
+  border-radius: 16px;
+}
+.level-detail-header {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+.level-detail-header h2 {
+  font-size: 20px;
+  margin-top: 3px;
+}
+.level-detail-header > .stars {
+  margin-left: auto;
+}
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+  margin-top: 18px;
+}
+.stage {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #e9e3f1;
+  border-radius: 11px;
+  padding: 15px 12px;
+  background: #fcfbfe;
+  color: #61536e;
+}
+.stage:hover:not(:disabled) {
+  border-color: #b997e2;
+  background: #f6f0ff;
+}
+.stage > span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+.stage small {
+  font-size: 10px;
+  color: #8d7c9d;
+}
+.stage strong {
+  font-size: 13px;
+}
+.stage-number {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  background: #eee6fa;
+  border-radius: 50%;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.stage-number.done {
+  background: #e4f2e7;
+  color: #638870;
+}
+.free-banner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #ede6fb;
+  border: 1px solid #ded1f1;
+  border-radius: 15px;
+  padding: 23px;
+  text-align: left;
+  color: #8261b2;
+  margin: 20px 0;
+}
+.free-banner h2 {
+  font-size: 21px;
+}
+.free-banner p {
+  font-size: 13px;
+  margin-top: 5px;
+}
+.free-banner > svg:last-child {
+  margin-left: auto;
+}
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.achievement-card {
+  text-align: center;
+  background: white;
+  border: 1px solid #e7e1ed;
+  border-radius: 18px;
+  padding: 30px 22px;
+  opacity: 0.7;
+}
+.achievement-card.won {
+  opacity: 1;
+  border-color: #d7c3ef;
+  background: linear-gradient(white, #fcf9ff);
+}
+.medal {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  outline: 1px dashed currentColor;
+  outline-offset: -8px;
+}
+.achievement-card h2 {
+  font-size: 20px;
+}
+.achievement-card p {
+  font-size: 13px;
+  margin: 10px 0 20px;
+  min-height: 40px;
+}
+.achievement-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #8d829b;
+}
+.won .achievement-status {
+  color: #7960a6;
+}
+.records-title {
+  margin: 30px 0 18px;
+}
+.record-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background: white;
+  border: 1px solid #e9e2ef;
+  border-radius: 16px;
+  padding: 25px;
+}
+.settings-page {
+  max-width: 830px;
+}
+.settings-card {
+  padding: 25px 28px;
+  background: white;
+  border: 1px solid #e6e0ec;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+.settings-card h2 {
+  font-size: 20px;
+}
+.settings-card p {
+  font-size: 13px;
+  margin-top: 9px;
+}
+.settings-card form {
+  margin-top: 20px;
+}
+.settings-card label {
+  font-size: 12px;
+  display: block;
+  margin-bottom: 7px;
+}
+.inline-form {
+  display: flex;
+  gap: 12px;
+  max-width: 470px;
+}
+.inline-form input {
+  flex: 1;
+}
+.settings-card [role='status'] {
+  display: block;
+  color: #528461;
+  font-size: 12px;
+  margin-top: 8px;
+}
+.sound-setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.sound-toggle {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  background: #eeeaf3;
+  padding: 12px 18px;
+  color: #83758c;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 900;
+}
+.sound-toggle.on {
+  background: #ece3fa;
+  color: #8160b6;
+}
+.danger-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: #fbeced;
+  color: #aa5964;
+  padding: 12px 17px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 800;
+}
+.settings-card .danger-button {
+  margin-top: 20px;
+}
+.free-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.free-card {
+  padding: 32px;
+  text-align: left;
+  background: white;
+  border: 1px solid #e5dced;
+  border-radius: 18px;
+}
+.free-card:hover {
+  border-color: #b398d7;
+  transform: translateY(-3px);
+}
+.free-card > .icon-box {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+}
+.free-card h2 {
+  font-size: 26px;
+}
+.free-card p {
+  font-size: 14px;
+  margin: 13px 0 25px;
+  min-height: 50px;
+}
+.free-card .purple-text {
+  font-size: 13px;
+  font-weight: 800;
+}

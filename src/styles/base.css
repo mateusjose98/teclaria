@@ -1,0 +1,192 @@
+:root {
+  font-family: 'Nunito', sans-serif;
+  color: #302c48;
+  background: #faf9fc;
+  font-synthesis: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+input {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    transform 0.18s,
+    box-shadow 0.18s;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+button:not(:disabled):active {
+  transform: translateY(1px);
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid #8766ea;
+  outline-offset: 4px;
+}
+input {
+  min-width: 0;
+  color: #302c48;
+  background: white;
+  border: 1.5px solid #dcd7e9;
+  border-radius: 11px;
+  padding: 13px 16px;
+}
+input::placeholder {
+  color: #8c869c;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.6px;
+}
+h1 {
+  font-size: 34px;
+}
+h2 {
+  font-size: 22px;
+}
+h3 {
+  font-size: 17px;
+}
+p {
+  line-height: 1.65;
+  color: #787286;
+}
+button {
+  border: 0;
+}
+button:disabled {
+  opacity: 0.66;
+}
+svg {
+  flex-shrink: 0;
+}
+input:disabled {
+  background: #f2eff7;
+}
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app > div#main-content {
+  flex: 1;
+}
+.app-header {
+  height: 83px;
+  border-bottom: 1px solid #ece9f2;
+  background: rgba(255, 255, 255, 0.92);
+}
+.header-inner {
+  max-width: 1220px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 0 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 29px;
+  font-weight: 900;
+  letter-spacing: -1.2px;
+  background: none;
+  color: #352c50;
+}
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 40px;
+  border-radius: 12px;
+  background: #7758de;
+  color: white;
+  box-shadow: 0 3px 0 #6347bc;
+}
+.brand-dot {
+  color: #9474e9;
+}
+.header-inner nav {
+  display: flex;
+  gap: 7px;
+  margin-left: 50px;
+}
+.header-inner nav button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  padding: 11px 16px;
+  color: #746e81;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 800;
+}
+.header-inner nav button:hover {
+  background: #f6f3fc;
+}
+.header-inner nav button.active {
+  background: #f0eafb;
+  color: #7051ce;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+.sound-button {
+  background: none;
+  color: #827b91;
+  padding: 8px;
+  border-radius: 8px;
+}
+.sound-button:hover {
+  background: #f1edf9;
+}
+.profile-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  color: #595167;
+  font-size: 13px;
+}
+.profile-button > span {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  background: #eee7fb;
+  color: #7851c7;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+.profile-button b {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

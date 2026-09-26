@@ -1,0 +1,113 @@
+.welcome-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: calc(100vh - 147px);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-content: center;
+  gap: 30px 65px;
+  padding: 60px 24px 32px;
+}
+.welcome-copy h1 {
+  font-size: 49px;
+  line-height: 1.13;
+  letter-spacing: -1.8px;
+  max-width: 540px;
+  margin: 16px 0 20px;
+}
+.welcome-tag {
+  font-size: 10px;
+  letter-spacing: 1.9px;
+  font-weight: 900;
+  color: #9a7bca;
+  display: inline-block;
+  padding: 7px 10px;
+  background: #f0eafa;
+  border-radius: 6px;
+}
+.welcome-copy > p {
+  font-size: 16px;
+  max-width: 440px;
+}
+.welcome-copy form {
+  display: flex;
+  flex-direction: column;
+  max-width: 360px;
+  margin-top: 26px;
+  gap: 12px;
+}
+.welcome-copy label {
+  font-size: 14px;
+  font-weight: 800;
+}
+.welcome-copy .primary-button {
+  font-size: 14px;
+}
+.welcome-copy > .primary-button {
+  margin-top: 30px;
+}
+.privacy-note {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 10px;
+  color: #958ca2;
+  margin-top: 3px;
+}
+.welcome-visual {
+  height: 400px;
+  position: relative;
+  align-self: center;
+  background: radial-gradient(circle, #e8dcfa 0, #f1ebfa 55%, transparent 69%);
+}
+.welcome-visual .mascot-scene {
+  transform: scale(1.42) rotate(-7deg);
+  top: 54px;
+  right: 60px;
+}
+.orbit {
+  position: absolute;
+  inset: 0;
+  border: 1px dashed #e3d7f2;
+  border-radius: 50%;
+  transform: rotate(25deg);
+}
+.orbit-two {
+  inset: 25px;
+  transform: rotate(-25deg);
+}
+.welcome-sticker {
+  position: absolute;
+  bottom: 23px;
+  left: 110px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #7c639f;
+  background: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px #7e63a416;
+  transform: rotate(-5deg);
+}
+.welcome-benefits {
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  border-top: 1px solid #eae5f1;
+  padding-top: 25px;
+}
+.welcome-benefits span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  color: #91859e;
+}
+.welcome-benefits svg {
+  color: #ad90d0;
+}

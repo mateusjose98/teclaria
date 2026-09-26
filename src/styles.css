@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@import './styles/base.css';
+@import './styles/dashboard.css';
+@import './styles/mascot.css';
+@import './styles/welcome.css';
+@import './styles/pages.css';
+@import './styles/exercise.css';
+@import './styles/results.css';
+@import './styles/responsive.css';
+@import './styles/accessibility.css';
+
+@theme {
+  --font-sans: 'Nunito', sans-serif;
+  --color-primary: #7154d9;
+}

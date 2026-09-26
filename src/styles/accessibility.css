@@ -1,0 +1,65 @@
+/* Secondary text keeps readable contrast on the light lavender surfaces. */
+.eyebrow,
+.little-label,
+.hero-footnote,
+.hero-progress > span:last-child,
+.hero-copy > p:not(.hero-level),
+.stat > div > span,
+.summary-bottom,
+.summary-bottom b,
+.level-card-bottom,
+.current-level .level-card-bottom,
+.app-footer,
+.privacy-note,
+.welcome-benefits span,
+.achievement-status,
+.stage small,
+.exercise-heading > span,
+.exercise-stats,
+.feedback,
+.keyboard-note,
+.exercise-tip,
+.game-stats,
+.result-details {
+  color: #74647e;
+}
+.key-instruction,
+.key {
+  color: #755e89;
+}
+.key.key-active {
+  color: #fff;
+  background: #7955b5;
+}
+.hero-tag,
+.hero-level,
+.welcome-tag {
+  color: #7754a9;
+}
+.tip-card h3,
+.tip-card p {
+  color: #87652f;
+}
+.achievement-link h3,
+.achievement-link p {
+  color: #78608f;
+}
+.feedback.gentle-error {
+  color: #996039;
+}
+.target-text .typed {
+  color: #467c59;
+  text-decoration: underline;
+  text-decoration-color: #b3d3bf;
+  text-underline-offset: 6px;
+}
+.stars .earned {
+  color: #b57a1e;
+}
+.purple-text {
+  color: #7651b6;
+}
+.typing-input::placeholder,
+input::placeholder {
+  color: #82728e;
+}

@@ -1,0 +1,468 @@
+.dashboard,
+.page {
+  max-width: 1172px;
+  margin: auto;
+  padding: 35px 0 30px;
+}
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+.eyebrow {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.7px;
+  color: #8a7d9e;
+  line-height: 1.5;
+}
+.greeting {
+  margin-bottom: 9px;
+  font-size: 9px;
+  letter-spacing: 1.8px;
+}
+.page-heading h1 {
+  margin-bottom: 7px;
+}
+.page-heading p {
+  font-size: 14px;
+}
+.wave {
+  font-size: 34px;
+  display: inline-block;
+  color: #e7b855;
+  margin-left: 5px;
+}
+.little-label {
+  font-size: 9px;
+  letter-spacing: 1.3px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #e4dfed;
+  padding: 8px 11px;
+  border-radius: 8px;
+  color: #8b8398;
+}
+.little-label > span {
+  width: 6px;
+  height: 6px;
+  background: #91b8a0;
+  border-radius: 50%;
+}
+.home-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 285px;
+  gap: 22px;
+}
+.hero-card {
+  background: #eee8fc;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e5dbf7;
+  border-radius: 20px;
+  min-height: 302px;
+  padding: 28px 31px;
+  display: flex;
+  align-items: center;
+}
+.hero-card::after {
+  content: '';
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  border-radius: 50%;
+  background: #e8dff8;
+  right: -37px;
+  top: 44px;
+}
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  width: 65%;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff8a;
+  border: 1px solid #e1d5f5;
+  color: #8260cb;
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.hero-level {
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  font-weight: 900;
+  color: #8263b9;
+  margin-top: 19px;
+  margin-bottom: 5px;
+}
+.hero-copy h2 {
+  font-size: 32px;
+  max-width: 340px;
+  color: #49366c;
+}
+.hero-copy > p:not(.hero-level) {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #827392;
+}
+.hero-progress {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 13px;
+  margin-bottom: 19px;
+}
+.hero-progress > span:last-child {
+  font-size: 10px;
+  color: #8a7e9c;
+}
+.stars {
+  display: inline-flex;
+  gap: 4px;
+  color: #c7bfd5;
+}
+.stars .earned {
+  color: #e9b352;
+}
+.primary-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: #7554d4;
+  color: white;
+  padding: 13px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 3px 0 #6041b6;
+  min-height: 45px;
+}
+.primary-button:hover {
+  background: #6543c5;
+  box-shadow: 0 4px 0 #5436a8;
+}
+.hero-footnote {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+  color: #90849e;
+  margin-top: 12px;
+}
+.journey-summary {
+  background: white;
+  border: 1px solid #e9e5f0;
+  border-radius: 19px;
+  padding: 20px 23px;
+}
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+}
+.section-kicker h2 {
+  font-size: 15px;
+}
+.icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.icon-box.small {
+  width: 29px;
+  height: 29px;
+  border-radius: 9px;
+}
+.purple {
+  background: #efe8fc;
+  color: #8864d4;
+}
+.orange {
+  background: #fff1dc;
+  color: #c48a32;
+}
+.green {
+  background: #e8f4eb;
+  color: #518468;
+}
+.blue {
+  background: #e7f1fb;
+  color: #6a99c4;
+}
+.pink {
+  background: #f9eaf1;
+  color: #bc7e9e;
+}
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.stat > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.stat strong {
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+.stat > div > span {
+  font-size: 11px;
+  color: #898194;
+  margin-top: 3px;
+}
+.journey-summary > .stat {
+  margin: 15px 0;
+}
+.journey-summary .stat .icon-box {
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+}
+.journey-summary .stat svg {
+  width: 19px;
+}
+.journey-summary .stat strong {
+  font-size: 22px;
+}
+.journey-summary .stat > div > span {
+  font-size: 10px;
+}
+.summary-bottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #f0edf5;
+  padding-top: 14px;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 10px;
+  color: #8c8299;
+}
+.summary-bottom b {
+  font-size: 9px;
+  color: #7c649e;
+}
+.progress-track {
+  height: 6px;
+  background: #eeebf4;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.progress-track > div {
+  height: 100%;
+  background: #9271e6;
+  border-radius: 20px;
+  transition: width 0.25s;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 29px 0 17px;
+}
+.section-heading h2 {
+  font-size: 20px;
+}
+.section-heading h2 > span {
+  color: #c2aedf;
+  font-size: 23px;
+  margin-left: 8px;
+}
+.section-heading p {
+  font-size: 12px;
+  margin-top: 5px;
+}
+.text-button {
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #81768f;
+  padding: 8px 4px;
+  border-radius: 6px;
+}
+.text-button:hover {
+  color: #6847bd;
+}
+.purple-text {
+  color: #7b58c8;
+}
+.green-text {
+  color: #568b68;
+}
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+.level-card {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e6e2ed;
+  background: white;
+  border-radius: 14px;
+  padding: 18px 17px 0;
+  min-height: 194px;
+  color: #494058;
+  overflow: hidden;
+}
+.level-card:not(:disabled):hover {
+  border-color: #bba2e9;
+  box-shadow: 0 6px 20px #6950990b;
+  transform: translateY(-2px);
+}
+.level-card.current-level {
+  border: 1.5px solid #c7b3ea;
+  box-shadow: 0 3px 8px #9a76c80a;
+}
+.level-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  color: #ada6b8;
+}
+.level-card .eyebrow {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+.level-card h3 {
+  font-size: 15px;
+  line-height: 1.3;
+  max-width: 135px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  min-height: 39px;
+}
+.level-card .stars {
+  gap: 3px;
+  margin-bottom: 14px;
+}
+.level-card .stars svg {
+  width: 14px;
+  height: 14px;
+}
+.available-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a68bcf;
+}
+.level-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 10px 0;
+  font-size: 9px;
+  color: #9b91ab;
+  border-top: 1px solid #f0ecf5;
+  margin-top: auto;
+  width: 100%;
+  white-space: nowrap;
+}
+.current-level .level-card-bottom {
+  color: #9270c8;
+}
+.locked {
+  opacity: 0.67;
+}
+.level-card:disabled {
+  opacity: 0.7;
+  background: #fdfcfe;
+}
+.home-bottom {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 20px;
+  margin-top: 22px;
+}
+.tip-card,
+.achievement-link {
+  padding: 16px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+.tip-card {
+  background: #fff7e9;
+  border: 1px solid #f6ebd4;
+}
+.tip-card .icon-box {
+  background: none;
+  width: 28px;
+}
+.tip-card h3,
+.achievement-link h3 {
+  font-size: 12px;
+  letter-spacing: 0;
+}
+.tip-card p,
+.achievement-link p {
+  font-size: 10px;
+  margin-top: 4px;
+  line-height: 1.6;
+}
+.tip-card h3 {
+  color: #957646;
+}
+.tip-card p {
+  color: #a28d6a;
+}
+.achievement-link {
+  background: #f3eff9;
+  border: 1px solid #ebe4f6;
+}
+.achievement-link .icon-box {
+  background: none;
+  width: 30px;
+}
+.achievement-link h3 {
+  color: #817099;
+}
+.achievement-link p {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #9e8cb4;
+}
+.app-footer {
+  max-width: 1172px;
+  margin: 0 auto;
+  width: 100%;
+  border-top: 1px solid #eae6f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0 22px;
+  color: #a199ad;
+  font-size: 10px;
+}
+.app-footer span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
