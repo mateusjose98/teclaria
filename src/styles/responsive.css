@@ -3,6 +3,11 @@
 }
 
 @media (max-width: 600px) {
+  .welcome-seo {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
   .mobile-device-warning {
     display: flex;
     align-items: flex-start;

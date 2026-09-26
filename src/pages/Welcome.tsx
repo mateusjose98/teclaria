@@ -77,6 +77,31 @@ export function Welcome({
           Feito para aprender sem pressa
         </span>
       </div>
+      <section className="welcome-seo" aria-labelledby="welcome-seo-title">
+        <div>
+          <p className="welcome-tag">CURSO DE DIGITAÇÃO ONLINE</p>
+          <h2 id="welcome-seo-title">Aprenda a digitar com mais precisão e confiança</h2>
+          <p>
+            O Teclaria é um curso de digitação gratuito para iniciantes. Pratique o teclado
+            brasileiro ABNT2, letras, números, teclas especiais, palavras, frases e parágrafos,
+            sempre no seu ritmo e sem cadastro.
+          </p>
+        </div>
+        <div className="welcome-faq" id="perguntas">
+          <details>
+            <summary>Preciso instalar alguma coisa?</summary>
+            <p>Não. O Teclaria funciona no navegador em computadores, desktops e notebooks.</p>
+          </details>
+          <details>
+            <summary>É gratuito para aprender a digitar?</summary>
+            <p>Sim. Os exercícios, jogos e o progresso local podem ser usados gratuitamente.</p>
+          </details>
+          <details>
+            <summary>Posso treinar teclado ABNT2?</summary>
+            <p>Sim. A jornada apresenta a disposição brasileira e explica as principais teclas.</p>
+          </details>
+        </div>
+      </section>
     </main>
   );
 }

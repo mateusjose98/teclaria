@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mateusjose98.github.io/teclaria/sitemap.xml
