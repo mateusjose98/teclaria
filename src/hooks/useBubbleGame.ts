@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Licao, Resultado } from '../types';
 import { sound } from '../services/sound';
+
+
 export interface Bubble {
   id: number;
   text: string;
