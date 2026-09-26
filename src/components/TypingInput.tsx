@@ -5,11 +5,13 @@ export function TypingInput({
   label = 'Digite aqui',
   onBlur,
   specialKeys = false,
+  multiline = false,
 }: {
   onInput: (text: string) => void;
   disabled?: boolean;
   label?: string;
   specialKeys?: boolean;
+  multiline?: boolean;
   onBlur?: () => void;
 }) {
   const [buffer, setBuffer] = useState('');
@@ -49,6 +51,18 @@ export function TypingInput({
         setBuffer('');
       }}
       onKeyDown={(e) => {
+        if (
+          multiline &&
+          e.key === 'Enter' &&
+          !e.nativeEvent.isComposing &&
+          !e.ctrlKey &&
+          !e.altKey &&
+          !e.metaKey
+        ) {
+          e.preventDefault();
+          if (!e.repeat) onInput('\n');
+          return;
+        }
         if (specialKeys && !e.repeat && !e.nativeEvent.isComposing) {
           if (e.key === 'Escape') {
             e.currentTarget.blur();

@@ -22,6 +22,15 @@ export function restore(raw: string | null): ProgressoUsuario {
       else break;
     }
     p.licoesConcluidas = lessons.filter((l) => p.licoesConcluidas.includes(l.id)).map((l) => l.id);
+    for (const l of lessons.filter((l) => l.id.startsWith('advanced-'))) {
+      const preceding = lessons.slice(0, lessons.indexOf(l));
+      if (
+        ids.includes(l.id) &&
+        preceding.every((previous) => p.licoesConcluidas.includes(previous.id))
+      ) {
+        p.licoesConcluidas.push(l.id);
+      } else break;
+    }
     p.nivelAtual = unlockedLevel(p.licoesConcluidas);
     p.xp = finite(d.xp);
     p.maiorSequencia = finite(d.maiorSequencia);

@@ -14,7 +14,11 @@ async function exitLesson(page: Page) {
 async function typeCurrentLesson(page: Page) {
   while (await page.locator('.target-text').count()) {
     const text = await page.locator('.target-text').getAttribute('aria-label');
-    await page.getByLabel('Digite aqui').pressSequentially(text!, { delay: 3 });
+    const lines = text!.split('\n');
+    for (let i = 0; i < lines.length; i++) {
+      await page.getByLabel('Digite aqui').pressSequentially(lines[i], { delay: 3 });
+      if (i < lines.length - 1) await page.getByLabel('Digite aqui').press('Enter');
+    }
     await page.waitForTimeout(40);
   }
 }
@@ -156,6 +160,10 @@ test('modo livre bloqueado e depois disponível; frases funcionam sem rede', asy
   await page.getByRole('button', { name: /ETAPA 3 Mestre das histórias/ }).click();
   expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBe(768);
   await typeCurrentLesson(page);
+  for (let stage = 0; stage < 3; stage++) {
+    await page.getByRole('button', { name: 'Continuar jornada' }).click();
+    await typeCurrentLesson(page);
+  }
   await expect(page.getByText('Mestre do teclado', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Continuar jornada' }).click();
   await page.getByRole('button', { name: /Frases/ }).click();

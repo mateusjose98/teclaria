@@ -1,4 +1,5 @@
 import { SpecialKey } from '../components/SpecialKey';
+import { useEffect, useRef } from 'react';
 import { TipoLicao } from '../types';
 import { Pause, ArrowLeft, Play, Target, Flame, Clock3, Zap } from 'lucide-react';
 import { useTypingExercise } from '../hooks/useTypingExercise';
@@ -19,9 +20,16 @@ export function Lesson({
   suspended?: boolean;
 }) {
   const special = lesson.tipo === TipoLicao.ESPECIAIS;
+  const multiline = lesson.tipo === TipoLicao.PARAGRAFOS;
+  const target = useRef<HTMLDivElement>(null);
   const engine = useTypingExercise(lesson, onFinish, suspended);
   const { state, seconds, paused } = engine;
   const text = lesson.exercicios[Math.min(state.index, lesson.exercicios.length - 1)];
+  useEffect(() => {
+    if (!multiline || !target.current) return;
+    const current = target.current.querySelector<HTMLElement>('.current-character');
+    if (current) target.current.scrollTop = current.offsetTop - target.current.clientHeight / 2;
+  }, [state.position, state.index, multiline]);
   return (
     <main className="exercise-shell">
       <div className="exercise-heading">
@@ -83,7 +91,8 @@ export function Lesson({
           <SpecialKey key={state.index} character={text} paused={paused || suspended} />
         ) : (
           <div
-            className={`target-text ${lesson.nivel === 0 ? 'single-character' : ''}`}
+            ref={target}
+            className={`target-text ${lesson.nivel === 0 ? 'single-character' : ''} ${multiline ? 'paragraph-text' : ''}`}
             aria-label={text}
           >
             {Array.from(text).map((c, i) => (
@@ -93,12 +102,23 @@ export function Lesson({
                   i < state.position ? 'typed' : i === state.position ? 'current-character' : ''
                 }
               >
-                {c === ' ' && i === state.position ? '␣' : c}
+                {c === '\n' ? '↵\n' : c === ' ' && i === state.position ? '␣' : c}
               </span>
             ))}
           </div>
         )}
-        <TypingInput specialKeys={special} onInput={engine.input} disabled={paused} />
+        {multiline && (
+          <p className="paragraph-hint">
+            Linha {text.slice(0, state.position).split('\n').length} de {text.split('\n').length} ·
+            ↵ significa Enter
+          </p>
+        )}
+        <TypingInput
+          multiline={multiline}
+          specialKeys={special}
+          onInput={engine.input}
+          disabled={paused}
+        />
         <p
           className={`feedback ${state.feedback.startsWith('Quase') ? 'gentle-error' : ''}`}
           aria-live="polite"

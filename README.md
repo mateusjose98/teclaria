@@ -1,6 +1,6 @@
 # Teclaria · Um toque de cada vez
 
-Uma aplicação de treinamento de digitação para iniciantes. A jornada começa nas letras e no Shift, passa por números e palavras, ganha um jogo de bolhas e termina em pequenos textos. Cada etapa oferece feedback gentil, XP e conquistas.
+Uma aplicação de treinamento de digitação para iniciantes. A jornada começa nas letras e no Shift, apresenta teclas especiais com imagens e voz, passa por números, palavras e bolhas e chega a parágrafos avançados. Cada etapa oferece feedback gentil, XP e conquistas.
 
 **100% frontend:** sem servidor de aplicação, autenticação, banco de dados ou serviços externos obrigatórios. O nome apenas personaliza a interface. Dados e preferências ficam no `localStorage` do próprio navegador.
 
@@ -39,18 +39,21 @@ Os testes de navegador usam Edge no Windows e Chromium nas outras plataformas. P
 
 ## A jornada
 
-| Nível                     | Etapa 1          | Etapa 2               | Etapa 3                         |
-| ------------------------- | ---------------- | --------------------- | ------------------------------- |
-| 0 · Explorador do teclado | Letras e Shift   | Pontuação e acentos   | Números, símbolos e combinações |
-| 1 · Teclas especiais      | Enter e Espaço   | Backspace, Tab e Ctrl | Revisão com imagens e voz       |
-| 2 · Mestre dos números    | Números simples  | Operações             | Datas, horários e valores       |
-| 3 · Caçador de palavras   | Palavras simples | Palavras médias       | Acentos e cedilha               |
-| 4 · Estoura-bolhas        | Letras           | Palavras curtas       | Mais bolhas e palavras maiores  |
-| 5 · Mestre da digitação   | Frases curtas    | Frases médias         | Pequenos textos                 |
+| Nível                          | Etapa 1               | Etapa 2               | Etapa 3                         |
+| ------------------------------ | --------------------- | --------------------- | ------------------------------- |
+| 0 · Explorador do teclado      | Letras e Shift        | Pontuação e acentos   | Números, símbolos e combinações |
+| 1 · Teclas especiais           | Enter e Espaço        | Backspace, Tab e Ctrl | Revisão com imagens e voz       |
+| 2 · Mestre dos números         | Números simples       | Operações             | Datas, horários e valores       |
+| 3 · Caçador de palavras        | Palavras simples      | Palavras médias       | Acentos e cedilha               |
+| 4 · Estoura-bolhas             | Letras                | Palavras curtas       | Mais bolhas e palavras maiores  |
+| 5 · Mestre da digitação        | Frases curtas         | Frases médias         | Pequenos textos                 |
+| 6 · Autor de grandes histórias | Parágrafo de 5 linhas | Texto de 6 linhas     | História de 7 linhas            |
 
 Cada nível possui **exatamente três etapas**, feitas em ordem. Concluir as três libera o próximo nível. Etapas concluídas continuam disponíveis para repetição. Concluir a última etapa libera o **Modo Livre**, com rodadas renováveis de palavras, frases e bolhas, sem limite de sessões.
 
 O nível de teclas especiais oferece ilustrações SVG, explicações e pronúncia automática, com botão para repetir. A voz usa a síntese de fala do navegador em português e respeita o controle global de som; a disponibilidade e a voz dependem do navegador e do sistema. Dentro do campo de prática, Tab é uma resposta; pressione Esc para liberar o foco e voltar a navegar. As etapas antigas concluídas são preservadas quando a trilha recebe novos níveis.
+
+O nível avançado inclui textos de 5, 6 e 7 linhas, com quebras explícitas: pressione Enter em cada marcador ↵. Em telas pequenas, as linhas podem ocupar mais de uma linha visual. A área de texto acompanha o cursor com rolagem e informa a linha atual. As três etapas avançadas fazem parte da jornada necessária para liberar o Modo Livre.
 
 Nos níveis 0 e 1 não há cronômetro visível nem velocidade mínima. A referência visual é o teclado brasileiro **ABNT2**; outros layouts podem usar combinações diferentes. A entrada usa o texto produzido pelo navegador, incluindo composição de acentos. Erros são contabilizados e mantêm o próximo caractere esperado, permitindo tentar novamente. Backspace não apaga caracteres corretos nem remove erros das estatísticas; colar texto é desabilitado durante os treinos.
 

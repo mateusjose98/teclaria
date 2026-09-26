@@ -1,8 +1,16 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { restore, storage, STORAGE_KEY } from './storage';
 import { freshProgress } from '../utils/progress';
+import { lessons } from '../data/lessons';
 afterEach(() => vi.unstubAllGlobals());
 describe('persistência local', () => {
+  it('restaura a jornada completa incluindo parágrafos e rejeita saltos avançados', () => {
+    const p = restore(JSON.stringify({ licoesConcluidas: lessons.map((l) => l.id) }));
+    expect(p.licoesConcluidas).toEqual(lessons.map((l) => l.id));
+    expect(restore(JSON.stringify({ licoesConcluidas: ['advanced-1'] })).licoesConcluidas).toEqual(
+      [],
+    );
+  });
   it('preserva etapas antigas ao inserir o nível de teclas especiais', () => {
     const ids = ['0-1', '0-2', '0-3', '1-1', '1-2'];
     const restored = restore(JSON.stringify({ licoesConcluidas: ids }));

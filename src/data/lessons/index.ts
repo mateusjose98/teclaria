@@ -4,10 +4,12 @@ import { level2 } from './level-2';
 import { level3 } from './level-3';
 import { level4 } from './level-4';
 import { specialKeyLessons } from './special-keys';
+import { advancedLessons } from './advanced';
 export const lessons = [
   ...level0,
   ...specialKeyLessons,
   ...[...level1, ...level2, ...level3, ...level4].map((l) => ({ ...l, nivel: l.nivel + 1 })),
+  ...advancedLessons,
 ];
 export const levels = [
   {
@@ -45,5 +47,11 @@ export const levels = [
     subtitle: 'Transforme toques em histórias',
     color: 'pink',
     icon: 'crown',
+  },
+  {
+    title: 'Autor de grandes histórias',
+    subtitle: 'Ganhe fluência com parágrafos de cinco a sete linhas',
+    color: 'purple',
+    icon: 'text',
   },
 ];
