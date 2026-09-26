@@ -1,6 +1,6 @@
 import { Check, Lock, Play } from 'lucide-react';
 import { lessons, levels } from '../data/lessons';
-import { canPlay } from '../utils/progress';
+import { canPlay, isPreviewUser } from '../utils/progress';
 import { Icon, Stars } from '../components/ui';
 import type { Licao, ProgressoUsuario } from '../types';
 export function Levels({
@@ -24,7 +24,7 @@ export function Levels({
       <div className="levels-list">
         {levels.map((level, i) => (
           <section
-            className={`level-detail ${i > progress.nivelAtual ? 'locked' : ''}`}
+            className={`level-detail ${i > progress.nivelAtual && !isPreviewUser(progress) ? 'locked' : ''}`}
             key={level.title}
           >
             <div className="level-detail-header">

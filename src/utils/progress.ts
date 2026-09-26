@@ -19,15 +19,17 @@ export const unlockedLevel = (completed: string[]) => {
     if (!lessons.filter((l) => l.nivel === n).every((l) => completed.includes(l.id))) return n;
   return levels.length;
 };
+export const isPreviewUser = (p: ProgressoUsuario) => p.nome.trim().toLowerCase() === 'k9';
 export const canPlay = (l: Licao, p: ProgressoUsuario) =>
-  l.nivel <= unlockedLevel(p.licoesConcluidas) &&
-  (l.etapa === 1 ||
-    lessons.some(
-      (previous) =>
-        previous.nivel === l.nivel &&
-        previous.etapa === l.etapa - 1 &&
-        p.licoesConcluidas.includes(previous.id),
-    ));
+  isPreviewUser(p) ||
+  (l.nivel <= unlockedLevel(p.licoesConcluidas) &&
+    (l.etapa === 1 ||
+      lessons.some(
+        (previous) =>
+          previous.nivel === l.nivel &&
+          previous.etapa === l.etapa - 1 &&
+          p.licoesConcluidas.includes(previous.id),
+      )));
 export const nextLesson = (p: ProgressoUsuario) =>
   lessons.find((l) => !p.licoesConcluidas.includes(l.id)) ?? lessons[lessons.length - 1];
 export const achievementInfo = [

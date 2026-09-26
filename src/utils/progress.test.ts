@@ -1,5 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { accuracy, ppm, freshProgress, unlockedLevel, canPlay, completeLesson } from './progress';
+import {
+  accuracy,
+  ppm,
+  freshProgress,
+  unlockedLevel,
+  canPlay,
+  completeLesson,
+  isPreviewUser,
+} from './progress';
 import { lessons, levels } from '../data/lessons';
 import type { Resultado } from '../types';
 const result: Resultado = {
@@ -45,6 +53,13 @@ describe('conteúdo e progressão', () => {
     p.licoesConcluidas = ['0-1'];
     expect(canPlay(lessons[0], p)).toBe(true);
     expect(canPlay(lessons[1], p)).toBe(true);
+  });
+  it('libera todas as lições para o usuário de prévia k9', () => {
+    const p = { ...freshProgress(), nome: 'k9' };
+    expect(isPreviewUser(p)).toBe(true);
+    expect(canPlay(lessons[lessons.length - 1], p)).toBe(true);
+    expect(canPlay(lessons[4], { ...p, nome: 'K9' })).toBe(true);
+    expect(canPlay(lessons[4], { ...p, nome: 'k9x' })).toBe(false);
   });
   it('conclui toda a jornada e libera o modo livre', () => {
     let p = freshProgress();

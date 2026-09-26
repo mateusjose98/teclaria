@@ -55,6 +55,8 @@ O nível de teclas especiais oferece ilustrações SVG, explicações e pronúnc
 
 O nível avançado inclui textos de 5, 6 e 7 linhas, com quebras explícitas: pressione Enter em cada marcador ↵. Em telas pequenas, as linhas podem ocupar mais de uma linha visual. A área de texto acompanha o cursor com rolagem e informa a linha atual. As três etapas avançadas fazem parte da jornada necessária para liberar o Modo Livre.
 
+Para revisar qualquer etapa sem seguir a ordem, use o nome `k9` no perfil. Esse usuário de prévia libera todos os níveis e lições para inspeção.
+
 Nos níveis 0 e 1 não há cronômetro visível nem velocidade mínima. A referência visual é o teclado brasileiro **ABNT2**; outros layouts podem usar combinações diferentes. A entrada usa o texto produzido pelo navegador, incluindo composição de acentos. Erros são contabilizados e mantêm o próximo caractere esperado, permitindo tentar novamente. Backspace não apaga caracteres corretos nem remove erros das estatísticas; colar texto é desabilitado durante os treinos.
 
 O jogo oferece três vidas. Digitar a primeira letra seleciona a bolha correspondente mais próxima do chão; completar o conteúdo a estoura. Uma bolha perdida consome uma vida. A etapa é concluída ao terminar a rodada com ao menos uma vida, e uma derrota permite tentar novamente. A quantidade simultânea e a velocidade aumentam com a etapa e os acertos. Há pausa manual, pausa ao perder o foco da entrada no jogo e pausa ao ocultar a aba.
