@@ -86,7 +86,7 @@ src/
   utils/            Regras puras de métricas, XP, progressão e digitação
 tests/              Jornadas completas no navegador
 public/sounds/      Ponto de extensão para futuros arquivos de áudio
-.github/workflows/  Validação, build e publicação no GitHub Pages
+.github/workflows/  Automação de validação e build
 ```
 
 React 19, TypeScript estrito, Vite 6, Tailwind CSS 4, Lucide React, Nunito, Vitest e Playwright. As fontes são empacotadas localmente; não são carregadas do Google Fonts. O mascote e o teclado são elementos de CSS, sem dependência de imagens remotas. O jogo usa `requestAnimationFrame`, com atualizações visuais limitadas a aproximadamente 30 FPS, e todos os listeners, timers e frames são limpos ao sair.
@@ -127,14 +127,3 @@ Para adicionar um som sintetizado, acrescente seu identificador ao tipo `SoundNa
 ## Acessibilidade e telas
 
 Foco visível, navegação por teclado, link para pular ao conteúdo, botões rotulados, avisos textuais e preferência por movimento reduzido. Acertos também avançam a posição e erros são descritos por texto; som e cor não são necessários para entender a atividade. Exercícios são preparados para caber em **1366×768, 1440×900 e 1920×1080**, sem rolagem, em zoom de 100%. Com zoom elevado, a rolagem permanece disponível para não cortar conteúdo. Há adaptação para telas menores.
-
-## GitHub Pages
-
-1. Crie um repositório no GitHub e envie este projeto para a branch `main`.
-2. Em **Settings → Pages → Build and deployment → Source**, escolha **GitHub Actions**.
-3. O workflow `.github/workflows/deploy.yml` executa `npm ci`, testes unitários e build, depois publica o diretório `dist/`.
-4. Abra a URL apresentada na execução do job `deploy`. Novos pushes na `main` publicam automaticamente. Também é possível executar o workflow manualmente em **Actions**.
-
-`vite.config.ts` usa `base: './'`, compatível com `https://usuario.github.io/repositorio/`, páginas de usuário e domínio próprio. A navegação usa estado interno, sem rotas de servidor, portanto atualizar a página não causa erros 404 em subrotas. Nenhum token personalizado é necessário: o workflow usa as permissões `pages: write` e `id-token: write` do GitHub.
-
-O repositório precisa estar com Pages habilitado e as permissões de Actions permitidas pela organização. A publicação depende desse ajuste na conta; gerar o build localmente não publica nada.

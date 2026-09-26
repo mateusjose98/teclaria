@@ -9,6 +9,7 @@ export function FreeMode({ onStart }: { onStart: (l: Licao) => void }) {
       type: TipoLicao.PALAVRAS,
       icon: 'text',
       color: 'green',
+      wordsOnly: false,
     },
     {
       title: 'Frases',
@@ -16,6 +17,7 @@ export function FreeMode({ onStart }: { onStart: (l: Licao) => void }) {
       type: TipoLicao.FRASES,
       icon: 'book',
       color: 'purple',
+      wordsOnly: false,
     },
     {
       title: 'Bolhas',
@@ -23,6 +25,15 @@ export function FreeMode({ onStart }: { onStart: (l: Licao) => void }) {
       type: TipoLicao.BOLHAS,
       icon: 'bubbles',
       color: 'blue',
+      wordsOnly: false,
+    },
+    {
+      title: 'Bolhas com palavras',
+      description: 'Estoure palavras inteiras antes que elas cheguem ao chão.',
+      type: TipoLicao.BOLHAS,
+      icon: 'bubbles',
+      color: 'purple',
+      wordsOnly: true,
     },
   ];
   return (
@@ -41,7 +52,9 @@ export function FreeMode({ onStart }: { onStart: (l: Licao) => void }) {
             className="free-card"
             onClick={() => {
               const source = lessons.filter((l) => l.tipo === m.type);
-              const pool = source.flatMap((l) => l.exercicios);
+              const pool = source
+                .flatMap((l) => l.exercicios)
+                .filter((item) => !m.wordsOnly || item.length > 1);
               const shuffled = [...pool];
               for (let i = shuffled.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));

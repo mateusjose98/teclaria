@@ -175,6 +175,10 @@ test('modo livre bloqueado e depois disponível; frases funcionam sem rede', asy
   await expect(page.getByRole('heading', { name: 'Você mandou muito bem!' })).toBeVisible();
   await page.getByRole('button', { name: 'Mais uma rodada' }).click();
   await expect(page.getByRole('heading', { name: 'Pratique no seu ritmo' })).toBeVisible();
+  await page.getByRole('button', { name: 'Bolhas com palavras' }).click();
+  await page.getByRole('button', { name: 'Começar jogo' }).click();
+  await expect(page.locator('.bubble').first()).toBeVisible();
+  expect((await page.locator('.bubble').first().innerText()).trim().length).toBeGreaterThan(1);
 });
 
 test('perder três vidas não libera a próxima etapa', async ({ page }) => {

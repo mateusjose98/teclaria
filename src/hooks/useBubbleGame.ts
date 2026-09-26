@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import type { Licao, Resultado } from '../types';
 import { sound } from '../services/sound';
 
-
 export interface Bubble {
   id: number;
   text: string;
@@ -161,7 +160,8 @@ export function useBubbleGame(lesson: Licao, onFinish: (r: Resultado) => void, s
         s.streak = bubble.error ? 0 : s.streak + 1;
         s.best = Math.max(s.best, s.streak);
         s.feedback = 'Pop! Mais uma conquista.';
-        sound.play(s.streak > 0 && s.streak % 5 === 0 ? 'streak' : 'pop');
+        if (s.streak > 0 && s.streak % 5 === 0) sound.play('streak');
+        else sound.playBubblePop();
       } else sound.play('correct');
     }
     publish(s);

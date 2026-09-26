@@ -60,4 +60,44 @@ export const sound = {
       /* Áudio é opcional. */
     }
   },
+  playBubblePop() {
+    if (!enabled) return;
+    try {
+      context ??= new AudioContext();
+      const ctx = context;
+      void ctx.resume().catch(() => undefined);
+      const now = ctx.currentTime;
+      const buffer = ctx.createBuffer(1, Math.floor(ctx.sampleRate * 0.075), ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < data.length; i++) {
+        const envelope = 1 - i / data.length;
+        data[i] = (Math.random() * 2 - 1) * envelope * envelope;
+      }
+      const noise = ctx.createBufferSource();
+      const noiseFilter = ctx.createBiquadFilter();
+      const noiseGain = ctx.createGain();
+      noise.buffer = buffer;
+      noiseFilter.type = 'bandpass';
+      noiseFilter.frequency.setValueAtTime(1900, now);
+      noiseFilter.Q.setValueAtTime(1.2, now);
+      noiseGain.gain.setValueAtTime(0.16, now);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.075);
+      noise.connect(noiseFilter).connect(noiseGain).connect(ctx.destination);
+      noise.start(now);
+      noise.stop(now + 0.08);
+
+      const oscillator = ctx.createOscillator();
+      const gain = ctx.createGain();
+      oscillator.type = 'sine';
+      oscillator.frequency.setValueAtTime(520, now);
+      oscillator.frequency.exponentialRampToValueAtTime(145, now + 0.12);
+      gain.gain.setValueAtTime(0.07, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+      oscillator.connect(gain).connect(ctx.destination);
+      oscillator.start(now);
+      oscillator.stop(now + 0.13);
+    } catch {
+      /* Áudio é opcional. */
+    }
+  },
 };
